@@ -2,7 +2,7 @@
 const { Builder, By, Key, until } = require('selenium-webdriver')
 const assert = require('assert')
 
-describe('0plus0', function() {
+describe('1plus0', function() {
   this.timeout(30000)
   let driver
   let vars
@@ -13,11 +13,11 @@ describe('0plus0', function() {
   afterEach(async function() {
     await driver.quit();
   })
-  it('0plus0', async function() {
-    await driver.get("http://127.0.0.1:5500/index.html")
+  it('1plus0', async function() {
+    await driver.get("http://127.0.0.1:5500/")
     await driver.manage().window().setRect({ width: 866, height: 1020 })
     await driver.findElement(By.id("num1")).click()
-    await driver.findElement(By.id("num1")).sendKeys("0")
+    await driver.findElement(By.id("num1")).sendKeys("1")
     await driver.findElement(By.id("num2")).click()
     await driver.findElement(By.id("num2")).sendKeys("0")
     await driver.findElement(By.css("button:nth-child(1)")).click()
