@@ -1,7 +1,6 @@
 name: Test Calculator Frontend
 
 on: 
-  push:
   pull_request:
 
 jobs:
@@ -31,7 +30,7 @@ jobs:
           python3 -m http.server 8000 &
           sleep 10
           curl http://localhost:8000
-          node tests/*.spec.js
+          npx mocha tests/*.spec.js
        
       - uses: actions/upload-artifact@v4
         if: always()
