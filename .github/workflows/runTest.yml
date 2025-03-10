@@ -20,6 +20,7 @@ jobs:
         with:
           chrome-version: 120
           install-dependencies: true
+<<<<<<< HEAD
       - name: Install dependencies
         run: |
           cd src
@@ -32,6 +33,17 @@ jobs:
           sleep 10
           curl http://localhost:8000
           node tests/*.spec.js
+=======
+      - run: |
+          cd src
+          python3 -m http.server 8000 &
+          sleep 10 &&
+          curl http://localhost:8000
+          cd ..
+          cd tests
+          npm install
+          ./node_modules/.bin/mocha *.js
+>>>>>>> b49938fdb1d1f7e7a9eb5cbd9efe1a3c5e97aa1e
        
       - uses: actions/upload-artifact@v4
         if: always()
