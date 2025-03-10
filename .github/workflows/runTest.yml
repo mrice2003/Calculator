@@ -17,7 +17,7 @@ jobs:
           node-version: '20'
       - uses: browser-actions/setup-chrome@v1
         with:
-          chrome-version: 120
+          chrome-version: 122
           install-dependencies: true
       - name: Install dependencies
         run: |
