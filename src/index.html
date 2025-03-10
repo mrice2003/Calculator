@@ -12,24 +12,19 @@
 
       <div class="input-group">
         <label for="num1">Enter first number:</label>
-        <input id="num1" type="number" step="any" />
+        <input id="num1" />
       </div>
-      <div class="input-group">
-        <label for="operator">Operation:</label>
-        <select id="operator">
-          <option value="+">Add (+)</option>
-          <option value="-">Subtract (-)</option>
-        </select>
-      </div>
+      <h3 id="operator"></h3>
       <div class="input-group">
         <label for="num2">Enter second number:</label>
-        <input id="num2" type="number" step="any" />
+        <input id="num2" />
       </div>
-      <h3 id="result">Result: </h3>
+      <h3 id="result">Result:</h3>
 
       <div class="button-group">
-        <button onclick="calculate(document.getElementById('operator').value)">Calculate</button>
-        <button onclick="resetFields()">Reset</button>
+        <button id="buttonAdd" onclick="add()">+</button>
+        <button id="buttonSub" onclick="sub()">-</button>
+        <button id="buttonRes" onclick="resetFields()">Reset</button>
       </div>
     </div>
 
