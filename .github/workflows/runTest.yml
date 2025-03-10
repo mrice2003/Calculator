@@ -23,17 +23,22 @@ jobs:
         run: |
           cd src
           npm install
+          npm install -g http-server
           
       - name: Start server and run tests
         run: |
           cd src
-          # Start server in background and wait for it
-          python3 -m http.server 8000 &
+          # Start server in background
+          http-server -p 8000 &
           SERVER_PID=$!
-          sleep 5
           
-          # Verify server is running
-          curl -f http://localhost:8000 || exit 1
+          # Wait for server to be ready
+          for i in {1..30}; do
+            if curl -s http://localhost:8000 > /dev/null; then
+              break
+            fi
+            sleep 1
+          done
           
           # Run tests
           npx mocha tests/*.spec.js
